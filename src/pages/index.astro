@@ -1,16 +1,85 @@
 ---
-
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naufal Faisa | Computer Science Student & Web Developer</title>
+    <link rel="icon" type="image/svg+xml" href="/public/Shizuka Kuze - Icon.svg">
+
+    <meta property="og:title" content="Naufal Faisa | Computer Science Student & Web Developer">
+    <meta property="og:description" content="Portfolio pribadi dan proyek web oleh Naufal Faisa.">
+    <meta property="og:image" content="https://github.com/naufalfaisa.png">
+    <meta property="og:url" content="https://naufalfaisa.my.id">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Naufal Faisa | Web Developer">
+    <meta name="twitter:description" content="Portfolio pribadi dan proyek web oleh Naufal Faisa.">
+    <meta name="twitter:image" content="https://github.com/naufalfaisa.png">
+
+    <link 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+      rel="stylesheet" />
+  </head>
+  <body>
+    <Navbar title="Welcome!" />
+
+    <div class="p-6 flex flex-col items-center text-center gap-6">
+
+      <div class="flex justify-center mt-8">
+        <div class="flex flex-col sm:flex-row items-center gap-6 max-w-3xl w-full px-4">
+          <div class="flex-shrink-0">
+            <img 
+              src="https://github.com/naufalfaisa.png" 
+              alt="Avatar" 
+              class="w-40 h-40 object-cover rounded-xl shadow-md" 
+              loading="lazy"
+            />
+          </div>
+
+          <div class="text-center sm:text-left">
+            <h2 class="text-2xl font-semibold title-text">Hi there! I'm Naufal Faisa</h2>
+            <p class="mt-2 subtitle-text text-gray-700 dark:text-gray-300">
+              I'm a computer science student who loves coding and exploring new technologies. 
+              Currently, I'm learning several programming languages, including Python, JavaScript, and Go.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 mt-6">
+        <a href="https://github.com/naufalfaisa" target="_blank" class="social-link social-github"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/naufal-faisa-071239312/" target="_blank" class="social-link social-linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://facebook.com/naufalfaisa17" target="_blank" class="social-link social-facebook"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://instagram.com/naufalfaisa_" target="_blank" class="social-link social-instagram"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://www.youtube.com/@naufalfaisa" target="_blank" class="social-link social-youtube"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://x.com/naufalfaisa" target="_blank" class="social-link social-x"><i class="fab fa-x-twitter"></i> X</a>
+      </div>
+
+      <div class="card mt-6 p-4 flex items-start gap-4 bg-gray-100 dark:bg-gray-900 dark:text-white">
+        <img src="https://media1.tenor.com/m/nJd_flo2pssAAAAC/anime.gif" alt="GIF" class="w-24 h-24 object-cover rounded-xl" />
+        <p class="subtitle-text">I'm someone who deals with social anxiety — it makes social situations a bit challenging sometimes, but I'm learning to embrace it and grow through it. Coding has become my safe space to express ideas and connect with others in my own way.</p>
+      </div>
+
+      <!-- <div class="mt-6">
+        <img src="/assets/bocchi-the-rock-characters-train-ride-g98icngc2429boex.jpg" alt="Bocchi the Rock" class="card object-cover" />
+      </div> -->
+
+      <div class="mt-6 flex justify-center">
+        <img 
+          src="https://lastfm-recently-played.vercel.app/api?user=naufalfaisa&width=500" 
+          alt="Last.fm Recently Played"
+          class="object-contain rounded-xl shadow-md border border-gray-300 dark:border-gray-700 w-[500px] max-w-full"
+        />
+      </div>
+
+    </div>
+
+    <Footer />
+  </body>
 </html>

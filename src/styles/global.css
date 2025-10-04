@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @apply flex flex-col items-center min-h-screen gap-5 p-3 bg-white text-black dark:bg-black dark:text-white;
+}
+.card {
+  @apply w-full max-w-3xl border-2 border-gray-200 dark:border-gray-800 rounded-xl shadow-md;
+}
+.title-text {
+  @apply text-xl font-bold;
+}
+.subtitle-text {
+  @apply text-gray-600 dark:text-gray-400;
+}
+.nav-link {
+  @apply relative inline-block px-1 text-lg font-bold text-black dark:text-white transition transform;
+}
+.nav-link:hover {
+  @apply scale-110;
+}
+.social-link {
+  @apply flex items-center gap-2 px-4 py-2 text-sm rounded-lg font-semibold
+    text-white border-2 transition-all transform hover:scale-105;
+  @apply brightness-125 hover:brightness-100 dark:brightness-100 dark:hover:brightness-125;
+}
+.social-github   { @apply bg-gray-800 border-gray-600; }
+.social-linkedin { @apply bg-blue-800 border-blue-500; }
+.social-facebook { @apply bg-blue-800 border-blue-400; }
+.social-instagram{ @apply bg-pink-800 border-pink-500; }
+.social-youtube  { @apply bg-red-800 border-red-500; }
+.social-x        { @apply bg-gray-950 border-gray-600; }
+
+

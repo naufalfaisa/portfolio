@@ -1,0 +1,60 @@
+---
+import "../styles/global.css";
+import "../styles/project.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naufal Faisa | Projects</title>
+	<link rel="icon" type="image/svg+xml" href="/public/Shizuka Kuze - Icon.svg">
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Navbar title="My Projects" />
+
+    <div class="project-container">
+      <div class="project-grid">
+		
+        <!-- Project 1 -->
+		<div class="project-card">
+			<img src="https://placehold.jp/640x360.png" alt="Project 1" class="project-img" loading="lazy" />
+			<div class="project-content">
+				<h2 class="text-xl font-bold">Project Satu</h2>
+				<p class="subtitle-text">
+					Deskripsi singkat project pertama, teknologi yang dipakai atau tujuan project.
+				</p>
+				<a href="https://github.com/naufalfaisa" target="_blank"
+					class="project-link">
+					<i class="fab fa-github"></i> View on GitHub
+				</a>
+			</div>
+		</div>
+
+        <!-- Project 2 -->
+		<div class="project-card">
+			<img src="https://placehold.jp/640x360.png" alt="Project 1" class="project-img" loading="lazy" />
+			<div class="project-content">
+				<h2 class="text-xl font-bold">Project Dua</h2>
+				<p class="subtitle-text">
+					Deskripsi singkat project kedua, teknologi yang dipakai atau tujuan project.
+				</p>
+				<a href="https://github.com/naufalfaisa" target="_blank"
+					class="project-link">
+					<i class="fab fa-github"></i> View on GitHub
+				</a>
+			</div>
+		</div>
+      </div>
+    </div>
+
+    <Footer />
+  </body>
+</html>

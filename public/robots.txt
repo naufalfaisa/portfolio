@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://naufalfaisa.my.id/sitemap-index.xml
