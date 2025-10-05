@@ -1,37 +1,66 @@
 @import "tailwindcss";
-@import "./fonts.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; font-family: 'Poppins', sans-serif;}
+
 body {
-  @apply flex flex-col items-center min-h-screen gap-5 p-3 bg-white text-black dark:bg-black dark:text-white;
+  @apply flex flex-col min-h-screen p-3 bg-neutral-200 text-black dark:bg-black dark:text-white;
 }
+
 .card {
-  @apply w-full max-w-3xl border-2 border-gray-200 dark:border-gray-800 rounded-xl shadow-md;
+  @apply w-full max-w-3xl border-2 bg-neutral-100 dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 rounded-xl shadow-md;
 }
+
 .title-text {
-  @apply text-xl font-bold;
+  @apply text-2xl font-semibold;
 }
 .subtitle-text {
-  @apply text-gray-600 dark:text-gray-400;
+  @apply text-neutral-600 dark:text-neutral-400;
 }
-.nav-link {
-  @apply relative inline-block px-1 text-lg font-bold text-black dark:text-white transition transform;
-}
-.nav-link:hover {
-  @apply scale-110;
-}
-.social-link {
-  @apply flex items-center gap-2 px-4 py-2 text-sm rounded-lg font-semibold
-    text-white border-2 transition-all transform hover:scale-105;
-  @apply brightness-125 hover:brightness-100 dark:brightness-100 dark:hover:brightness-125;
-}
-.social-github   { @apply bg-gray-800 border-gray-600; }
-.social-linkedin { @apply bg-blue-800 border-blue-500; }
-.social-facebook { @apply bg-blue-800 border-blue-400; }
-.social-instagram{ @apply bg-pink-800 border-pink-500; }
-.social-youtube  { @apply bg-red-800 border-red-500; }
-.social-x        { @apply bg-gray-950 border-gray-600; }
 
+.navbar {
+  @apply w-full max-w-3xl;
+}
+
+.nav-link {
+  @apply px-1 text-lg font-semibold text-black dark:text-white transition transform;
+}
+.nav-link:hover { @apply scale-110; }
+
+.social-link {
+  @apply flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white font-semibold
+          hover:brightness-75 border-2 transition-all transform;
+}
+
+.social-github   { @apply bg-[#181717] border-neutral-600; }
+.social-linkedin { @apply bg-[#0A66C2] border-[#0A66C2]; }
+.social-facebook { @apply bg-[#1877F2] border-[#1877F2]; }
+.social-instagram{ @apply bg-[#DD2A7B] border-[#DD2A7B]; }
+.social-youtube  { @apply bg-[#FF0000] border-[#FF0000]; }
+.social-x        { @apply bg-[#000000] border-neutral-600; }
+
+.project-container {
+  @apply p-4 flex flex-col;
+}
+.project-grid {
+  @apply w-full max-w-3xl grid sm:grid-cols-2 gap-4;
+}
+
+.project-card {
+  @apply overflow-hidden rounded-xl border-2 shadow-md text-left 
+        dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700
+          transition-transform duration-300 hover:scale-105;
+}
+
+.project-img {
+  @apply w-full aspect-[16/9] object-cover object-center;
+}
+
+.project-content {
+  @apply p-4 flex flex-col gap-3;
+}
+
+.project-title {
+  @apply text-lg font-semibold;
+}
 

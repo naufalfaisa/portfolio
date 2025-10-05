@@ -1,0 +1,17 @@
+---
+import { socialLinks } from "../data/socialLinks";
+---
+
+<div class="flex flex-wrap justify-center gap-2 mt-4 sm:mt-6">
+  {socialLinks.map((link) => (
+    <a
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class={`social-link ${link.class} text-xs sm:text-sm`}
+    >
+      <i class={link.icon}></i> {link.name}
+    </a>
+  ))}
+</div>
+

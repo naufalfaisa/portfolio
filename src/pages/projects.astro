@@ -1,60 +1,40 @@
 ---
-import "../styles/global.css";
-import "../styles/project.css";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { fetchProjects, type Project } from "../data/fetchProjects";
+
+const projects: Project[] = await fetchProjects();
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Naufal Faisa | Projects</title>
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <Navbar title="My Projects" />
-
-    <div class="project-container">
-      <div class="project-grid">
-		
-        <!-- Project 1 -->
-		<div class="project-card">
-			<img src="https://i.imgur.com/NL4O93e.jpeg" alt="Project 1" class="project-img" loading="lazy" />
-			<div class="project-content">
-				<h2 class="text-xl font-bold">AMLY</h2>
-				<p class="subtitle-text">
-					A Python program for downloading Apple Music time-synced lyrics in LRC format.
-				</p>
-				<a href="https://github.com/naufalfaisa/amly" target="_blank"
-					class="project-link">
-					<i class="fab fa-github"></i> View on GitHub
-				</a>
-			</div>
-		</div>
-
-        <!-- Project 2 -->
-		<!-- <div class="project-card">
-			<img src="https://placehold.jp/640x360.png" alt="Project 1" class="project-img" loading="lazy" />
-			<div class="project-content">
-				<h2 class="text-xl font-bold">Project Dua</h2>
-				<p class="subtitle-text">
-					Deskripsi singkat project kedua, teknologi yang dipakai atau tujuan project.
-				</p>
-				<a href="https://github.com/naufalfaisa" target="_blank"
-					class="project-link">
-					<i class="fab fa-github"></i> View on GitHub
-				</a>
-			</div> -->
-		</div>
-      </div>
+<BaseLayout title="Naufal Faisa | Projects">
+  <div class="project-container max-w-3xl p-4 sm:p-6 flex flex-col">
+    <h1 class="title-text text-left px-4 py-4">My Project</h1>
+    <div class="project-grid">
+      {projects.map(project => (
+        <div class="project-card">
+          <img
+            src={project.image}
+            alt={project.title}
+            class="project-img"
+            loading="lazy"
+          />
+          <div class="project-content">
+            <h2 class="project-title">{project.title}</h2>
+            <p class="subtitle-text text-sm line-clamp-2">
+              {project.description}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <a
+                href={project.github}
+                target="_blank"
+                class="social-link social-github"
+              >
+                <i class="fab fa-github"></i> GitHub
+                <i class="fa-solid fa-up-right-from-square text-xs ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
-
-    <Footer />
-  </body>
-</html>
+  </div>
+</BaseLayout>
