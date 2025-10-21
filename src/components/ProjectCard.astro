@@ -1,0 +1,31 @@
+---
+import type { Project } from "../data/fetchProjects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props as Props;
+---
+
+<div class="project-card relative">
+  <div class="relative">
+    <img src={project.image} alt={project.title} class="project-img" loading="lazy" />
+    <span
+      class="absolute top-2 right-2 inline-block px-2 py-0.5 text-xs font-medium rounded-md text-white"
+      style={`background-color: ${project.color}`}
+    >
+      {project.language}
+    </span>
+  </div>
+  <div class="project-content">
+    <h2 class="project-title">{project.title}</h2>
+    <p class="subtitle-text text-sm line-clamp-2">{project.description}</p>
+    <div class="flex flex-wrap gap-2">
+      <a href={project.github} target="_blank" class="social-link social-github">
+        <i class="fab fa-github"></i> GitHub
+        <i class="fa-solid fa-up-right-from-square text-xs ml-1"></i>
+      </a>
+    </div>
+  </div>
+</div>

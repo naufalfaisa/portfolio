@@ -1,17 +1,36 @@
-<div class="px-6 py-3 card navbar"> 
+<div class="px-6 py-3 card navbar">  
   <div class="flex justify-between flex-wrap items-center gap-2"> 
 
-    <div class="flex items-center gap-2 flex-nowrap nav-link">
-      <img src="/favicon.svg" alt="Logo" class="h-6 w-6"/>
-      <span>naufalfaisa</span>
+    <div class="flex items-center gap-2 flex-nowrap title-text">
+      <span class="px-2">ウエルカム!</span>
     </div>
 
-    <div class="flex gap-4">
-      <a href="/" class="nav-link"><i class="fa-solid fa-house"></i></a>
-      <a href="/projects" class="nav-link"><i class="fa-solid fa-folder"></i></a>
-      <a href="https://blog.naufalfaisa.my.id/" target="_blank" class="nav-link">
+    <div class="flex gap-3">
+      <a href="/" class="nav-link relative group">
+        <i class="fa-solid fa-house"></i>
+        <span class="tooltip">Home</span>
+      </a>
+      <a href="/projects" class="nav-link relative group">
+        <i class="fa-solid fa-folder"></i>
+        <span class="tooltip">Projects</span>
+      </a>
+      <a href="https://blog.naufalfaisa.my.id/" target="_blank" class="nav-link relative group">
         <i class="fa-solid fa-blog"></i>
+        <span class="tooltip">Blog</span>
       </a>
     </div>
   </div> 
 </div>
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".nav-link a, .nav-link"); // semua nav-link
+    navLinks.forEach(link => {
+      if (link.tagName === "A" && link.href.startsWith(window.location.origin)) {
+        if (link.pathname === window.location.pathname) {
+          link.classList.add("active");
+        }
+      }
+    });
+  });
+</script>

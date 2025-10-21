@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1054354195,
+    "title": "amly",
+    "description": "A Python program for downloading Apple Music time-synced lyrics in LRC format.",
+    "github": "https://github.com/naufalfaisa/amly",
+    "language": "Python",
+    "color": "#3572A5",
+    "image": "/images/amly.webp"
+  },
+  {
+    "id": 1069819896,
+    "title": "amdl",
+    "description": "A command-line tool written in Go for downloading Apple Music content, including ALAC lossless audio, Dolby Atmos, AAC, and music videos. Supports album, single, and playlist URLs, with options for lyric extraction and metadata handling.",
+    "github": "https://github.com/naufalfaisa/amdl",
+    "language": "Go",
+    "color": "#00ADD8",
+    "image": "/images/amdl.webp"
+  },
+  {
+    "id": 1069666067,
+    "title": "portfolio",
+    "description": "My portfolio website (under development)",
+    "github": "https://github.com/naufalfaisa/portfolio",
+    "language": "Astro",
+    "color": "#ff5a03",
+    "image": "/images/portfolio.webp"
+  }
+]

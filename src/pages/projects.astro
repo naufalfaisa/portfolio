@@ -1,40 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { fetchProjects, type Project } from "../data/fetchProjects";
+import ProjectList from "../components/ProjectList.astro";
+import { fetchProjects } from "../data/fetchProjects";
 
-const projects: Project[] = await fetchProjects();
+const projects = await fetchProjects();
 ---
 
 <BaseLayout title="Naufal Faisa | Projects">
-  <div class="project-container max-w-3xl p-4 sm:p-6 flex flex-col">
-    <h1 class="title-text text-left px-4 py-4">My Project</h1>
-    <div class="project-grid">
-      {projects.map(project => (
-        <div class="project-card">
-          <img
-            src={project.image}
-            alt={project.title}
-            class="project-img"
-            loading="lazy"
-          />
-          <div class="project-content">
-            <h2 class="project-title">{project.title}</h2>
-            <p class="subtitle-text text-sm line-clamp-2">
-              {project.description}
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <a
-                href={project.github}
-                target="_blank"
-                class="social-link social-github"
-              >
-                <i class="fab fa-github"></i> GitHub
-                <i class="fa-solid fa-up-right-from-square text-xs ml-1"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+  <div class="project-container max-w-3xl p-4 mt-3 sm:p-6 flex flex-col">
+    <h1 class="title-text text-left mb-6">My Projects</h1>
+    <ProjectList projects={projects} />
   </div>
 </BaseLayout>

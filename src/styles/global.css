@@ -8,7 +8,7 @@ body {
 }
 
 .card {
-  @apply w-full max-w-3xl border-2 bg-neutral-100 dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 rounded-xl shadow-md;
+  @apply w-full max-w-3xl border-1 bg-neutral-100 dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 rounded-xl shadow-md;
 }
 
 .title-text {
@@ -23,33 +23,40 @@ body {
 }
 
 .nav-link {
-  @apply px-1 text-lg font-semibold text-black dark:text-white transition transform;
+  @apply px-2 py-1 text-lg font-semibold text-neutral-700 dark:text-white rounded-xl
+         transition-transform duration-300 ease-in-out transform hover:scale-110;
+  will-change: transform;
 }
-.nav-link:hover { @apply scale-110; }
+
+.nav-link.active { 
+  @apply bg-neutral-300 dark:bg-neutral-700; 
+}
 
 .social-link {
-  @apply flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-white font-semibold
-          hover:brightness-75 border-2 transition-all transform;
+  @apply flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-white font-semibold
+         transition-all duration-300 ease-in-out transform;
+  will-change: transform, opacity;
 }
 
-.social-github   { @apply bg-[#181717] border-neutral-600; }
-.social-linkedin { @apply bg-[#0A66C2] border-[#0A66C2]; }
-.social-facebook { @apply bg-[#1877F2] border-[#1877F2]; }
-.social-instagram{ @apply bg-[#DD2A7B] border-[#DD2A7B]; }
-.social-youtube  { @apply bg-[#FF0000] border-[#FF0000]; }
-.social-x        { @apply bg-[#000000] border-neutral-600; }
+.social-github   { @apply bg-[#181717] border-1 border-neutral-600 text-white hover:bg-[#2c2c2c]; }
+.social-linkedin { @apply bg-[#0A4E8C] text-white hover:bg-[#0A66C2]; }
+.social-facebook { @apply bg-[#1560E0] text-white hover:bg-[#1877F2]; }
+.social-instagram{ @apply bg-[#C4276F] text-white hover:bg-[#DD2A7B]; }
+.social-youtube  { @apply bg-[#CC0000] text-white hover:bg-[#FF0000]; }
+.social-x        { @apply bg-[#000000] border-1 border-neutral-600 text-white hover:bg-[#333333]; }
 
 .project-container {
   @apply p-4 flex flex-col;
 }
 .project-grid {
-  @apply w-full max-w-3xl grid sm:grid-cols-2 gap-4;
+  @apply w-full max-w-3xl grid sm:grid-cols-2 gap-5;
 }
 
 .project-card {
-  @apply overflow-hidden rounded-xl border-2 shadow-md text-left 
-        dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700
-          transition-transform duration-300 hover:scale-105;
+  @apply overflow-hidden rounded-xl border-1 shadow-md text-left
+         dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700
+         transition-transform duration-300 ease-in-out hover:scale-105;
+  will-change: transform;
 }
 
 .project-img {
@@ -64,3 +71,12 @@ body {
   @apply text-lg font-semibold;
 }
 
+.tooltip {
+  @apply absolute top-full mt-2 left-1/2 transform -translate-x-1/2 
+         opacity-0 invisible group-hover:opacity-100 group-hover:visible
+         transition-opacity duration-300 ease-in-out
+         bg-neutral-100 dark:bg-neutral-900 
+         text-neutral-700 dark:text-white text-xs border-1 border-neutral-300 dark:border-neutral-700 
+         rounded-lg px-2 py-1 whitespace-nowrap shadow-md z-50;
+  will-change: opacity, transform;
+}

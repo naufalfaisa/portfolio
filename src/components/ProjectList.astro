@@ -1,0 +1,14 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import type { Project } from "../data/fetchProjects";
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props as Props;
+---
+
+<div class="project-grid">
+  {projects.map(project => <ProjectCard project={project} />)}
+</div>
