@@ -1,11 +1,12 @@
-# 🌌 My Astro Portfolio
-(Astro)[https://astro.build/]-based portfolio
+# Portfolio
+
+[Astro](https://astro.build/) based portfolio
 
 - Built with Astro + TailwindCSS
 - Responsive on all screen sizes
 - Automatic Dark/Light mode
 
-## 🚀 How to Run
+## How to Run
 
 1. Clone repository
 ```

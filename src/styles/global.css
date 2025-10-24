@@ -8,7 +8,7 @@ body {
 }
 
 .card {
-  @apply w-full max-w-3xl border-1 bg-neutral-100 dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 rounded-xl shadow-md;
+  @apply w-full max-w-3xl border-1 bg-neutral-100 dark:bg-neutral-900 border-neutral-400 dark:border-neutral-700 rounded-xl shadow-md;
 }
 
 .title-text {
@@ -54,7 +54,7 @@ body {
 
 .project-card {
   @apply overflow-hidden rounded-xl border-1 shadow-md text-left
-         dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700
+         dark:bg-neutral-900 border-neutral-400 dark:border-neutral-700
          transition-transform duration-300 ease-in-out hover:scale-105;
   will-change: transform;
 }
@@ -76,7 +76,7 @@ body {
          opacity-0 invisible group-hover:opacity-100 group-hover:visible
          transition-opacity duration-300 ease-in-out
          bg-neutral-100 dark:bg-neutral-900 
-         text-neutral-700 dark:text-white text-xs border-1 border-neutral-300 dark:border-neutral-700 
+         text-neutral-700 dark:text-white text-xs border-1 border-neutral-400 dark:border-neutral-700 
          rounded-lg px-2 py-1 whitespace-nowrap shadow-md z-50;
   will-change: opacity, transform;
 }
