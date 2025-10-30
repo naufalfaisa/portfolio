@@ -1,16 +1,13 @@
 import fs from "fs";
+import path from "path";
 
 export type Project = {
   id: number;
   title: string;
   description: string;
   github: string;
-  // demoUrl: string | null;
-  // stars: number;
-  // forks: number;
   language: string;
   color: string;
-  // topics: string[];
   image: string;
 };
 
@@ -18,35 +15,46 @@ const repoLinks = [
   "naufalfaisa/amly",
   "naufalfaisa/amdl",
   "naufalfaisa/portfolio"
-  // other repos here
 ];
 
 const coverMap: Record<string, string> = {
   "naufalfaisa/amly": "/images/amly.webp",
   "naufalfaisa/amdl": "/images/amdl.webp",
   "naufalfaisa/portfolio": "/images/portfolio.webp"
-  // repo cover image
+};
+
+type CacheFile = {
+  timestamp: number;
+  projects: Project[];
 };
 
 export async function fetchProjects(): Promise<Project[]> {
-  const cachePath = "./src/data/projects-cache.json";
+  const cachePath = path.resolve("./src/data/projects-cache.json");
   const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
+  const CACHE_TTL = 30 * 60 * 1000;
 
   if (fs.existsSync(cachePath)) {
-    const cached = JSON.parse(fs.readFileSync(cachePath, "utf-8"));
-    return cached;
+    const cached: CacheFile = JSON.parse(fs.readFileSync(cachePath, "utf-8"));
+    const age = Date.now() - cached.timestamp;
+    if (age < CACHE_TTL) {
+      return cached.projects;
+    }
   }
 
-  const colorRes = await fetch("https://raw.githubusercontent.com/ozh/github-colors/master/colors.json");
+  const colorRes = await fetch(
+    "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
+  );
   const colors = await colorRes.json();
 
-  const headers = GITHUB_TOKEN
-    ? { Authorization: `token ${GITHUB_TOKEN}`, Accept: "application/vnd.gtihub.v3+json"}
-    : {};
+  const headers = new Headers();
+  headers.set("Accept", "application/vnd.github.v3+json");
+  if (GITHUB_TOKEN) {
+    headers.set("Authorization", `token ${GITHUB_TOKEN}`);
+  }
 
   const projects: Project[] = await Promise.all(
     repoLinks.map(async (fullName) => {
-      const res = await fetch(`https://api.github.com/repos/${fullName}`);
+      const res = await fetch(`https://api.github.com/repos/${fullName}`, { headers });
       const data = await res.json();
       const lang = data.language || "Unknown";
       const color = colors[lang]?.color || "#999999";
@@ -56,17 +64,18 @@ export async function fetchProjects(): Promise<Project[]> {
         title: data.name || "Project title",
         description: data.description || "No description",
         github: data.html_url,
-        // demoUrl: data.homepage || null,
-        // stars: data.stargazers_count,
-        // forks: data.forks_count,
         language: data.language || "Unknown",
         color,
-        // topics: data.topics || [],
         image: coverMap[fullName] || "https://placehold.jp/1280x720.png",
       };
     })
   );
 
-  fs.writeFileSync(cachePath, JSON.stringify(projects, null, 2));
+  const cacheData: CacheFile = {
+    timestamp: Date.now(),
+    projects,
+  };
+  fs.writeFileSync(cachePath, JSON.stringify(cacheData, null, 2));
+
   return projects;
 }

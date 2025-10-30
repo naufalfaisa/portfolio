@@ -1,15 +1,88 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import SocialLinks from "../components/SocialLinks.astro";
-import Content from "../components/Content.astro";
+import { socialLinks } from "../data/socialLinks";
+
+const infos = [
+  { icon: "fas fa-map-marker-alt", text: "Jambi, Indonesia" },
+  { icon: "fas fa-graduation-cap", text: "Universitas Jambi" },
+  { icon: "fas fa-envelope", text: "naufalfaisa386@gmail.com", isLink: true, href: "mailto:naufalfaisa@example.com" },
+];
 ---
 
 <BaseLayout title="Naufal Faisa | Computer Science Student & Web Developer">
-  <div class="w-full max-w-3xl p-4 sm:p-6 flex flex-col gap-6">
-    <Hero />
-    <SocialLinks />
-    <Content />
+  <div class="w-full max-w-5xl p-4 sm:p-6 flex flex-col gap-6">
+    
+    <div class="flex justify-center mt-6 mb-6">
+      <div class="flex flex-col sm:flex-row items-center gap-6 max-w-5xl w-full">
+        <img
+          src="https://github.com/naufalfaisa.png"
+          alt="Avatar"
+          class="w-28 h-28 sm:w-40 sm:h-40 object-cover rounded-xl shadow-md"
+          loading="lazy"
+        />
+        <div class="flex flex-col justify-center text-center sm:text-left gap-2">
+          <h2 class="title-text text-lg sm:text-xl md:text-2xl font-semibold">Naufal Faisa</h2>
+          <p class="text-sm sm:text-base subtitle-text">Computer Science student</p>
+
+          <div class="text-sm mt-2 flex flex-col gap-1">
+            {infos.map((info) => (
+              <div class="flex items-center gap-2">
+                <div class="w-6 flex justify-center subtitle-text">
+                  <i class={info.icon}></i>
+                </div>
+                {info.isLink ? (
+                  <a href={info.href} class="subtitle-text hover:underline">{info.text}</a>
+                ) : (
+                  <span class="subtitle-text">{info.text}</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-2">
+      {socialLinks.map((link) => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`group relative social-link ${link.class}`}
+        >
+          <i class={link.icon}></i> {link.name}
+        </a>
+      ))}
+    </div>
+
+    <div class="card p-3 sm:p-4 flex flex-col sm:flex-row items-start gap-3 sm:gap-4 text-sm sm:text-base">
+      <img
+        src="https://media1.tenor.com/m/nJd_flo2pssAAAAC/anime.gif"
+        alt="GIF"
+        class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-xl mx-auto sm:mx-0"
+      />
+      <div class="subtitle-text text-center sm:text-left space-y-2">
+      <p>
+        Hi there! I'm <strong>Naufal Faisa</strong>, a computer science student who loves coding and exploring new technologies.
+      </p>
+      <p>
+        I'm someone who deals with social anxiety — it makes social situations a bit challenging,
+        but coding has become my safe space to express ideas and connect with others.
+      </p>
+      </div>
+    </div>
+    
+    <div class="flex justify-center gap-4 flex-wrap max-w-5xl mx-auto">
+      <img
+        src="https://i.imgur.com/DmOkhnw.jpeg"
+        class="object-contain rounded-xl shadow-md border-1 border-neutral-400 dark:border-neutral-700 w-[100%] sm:w-[48%]"
+      />
+      <img
+        src="https://lastfm-recently-played.vercel.app/api?user=naufalfaisa&width=500"
+        alt="Last.fm Recently Played"
+        class="object-contain rounded-xl shadow-md border-1 border-neutral-400 dark:border-neutral-700 w-[100%] sm:w-[48%]"
+      />
+    </div>
   </div>
 </BaseLayout>
