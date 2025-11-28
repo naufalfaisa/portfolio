@@ -94,7 +94,7 @@ export const siteConfig: SiteConfig = {
         company: "Freelance",
         period: "2025 - Present",
         icon: FaDesktop,
-        link: "#",
+        link: "/",
       },
     ],
     enabled: true,
@@ -111,7 +111,7 @@ export const siteConfig: SiteConfig = {
         image: "https://placehold.jp/400x225.png",
       },
     ],
-    enabled: true,
+    enabled: false,
   },
 
   socials: {
@@ -127,7 +127,7 @@ export const siteConfig: SiteConfig = {
       {
         name: "Instagram",
         username: "@naufalfaisa_",
-        url: "https://instagram.com/naufalfaisa",
+        url: "https://instagram.com/naufalfaisa_",
         icon: FaInstagram,
       },
     ],

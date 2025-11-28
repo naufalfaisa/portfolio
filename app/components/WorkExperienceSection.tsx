@@ -1,43 +1,26 @@
 "use client";
 
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 import { siteConfig } from "@/config/site.config";
-import { motion, Variants } from "framer-motion";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const AnimateOnView: FC<{ children: ReactNode; delay?: number }> = ({ children, delay = 0 }) => (
-  <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, amount: 0.2 }}
-    variants={fadeUp}
-    transition={{ duration: 0.5, delay }}
-  >
-    {children}
-  </motion.div>
-);
+import { FadeUpOnce } from "./FadeUpOnce";
 
 export const WorkExperienceSection: FC = () => {
   const { workExperience } = siteConfig;
 
   return (
     <section className="space-y-4">
-      <AnimateOnView>
+      <FadeUpOnce>
         <h2 className="font-medium text-2xl">{workExperience.title}</h2>
-      </AnimateOnView>
-      <AnimateOnView delay={0.1}>
+      </FadeUpOnce>
+      <FadeUpOnce delay={0.1}>
         <p className="text-gray-700">{workExperience.description}</p>
-      </AnimateOnView>
+      </FadeUpOnce>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {workExperience.items.map((s, i) => {
           const Icon = s.icon;
           return (
-            <AnimateOnView key={i} delay={0.2 + i * 0.1}>
+            <FadeUpOnce key={i} delay={0.2 + i * 0.1}>
               <a
                 href={s.link}
                 target="_blank"
@@ -53,7 +36,7 @@ export const WorkExperienceSection: FC = () => {
                   <p className="text-sm text-gray-700 mt-1">{s.period}</p>
                 </div>
               </a>
-            </AnimateOnView>
+            </FadeUpOnce>
           );
         })}
       </div>
