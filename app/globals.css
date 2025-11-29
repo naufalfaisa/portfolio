@@ -1,8 +1,67 @@
 @import "tailwindcss";
 
-body {
-  font-family: var(--font-poppins), sans-serif;
-  background-color: #f8f9fa;
-  color: #171717;
+:root {
+  --color-bg: #f9fafb;            /* bg-zinc-50 */
+  --color-text-primary: #111827;  /* text-zinc-900 */
+  --color-text-secondary: #374151; /* text-zinc-700 */
+  --color-text-tertiary: #6b7280;  /* text-zinc-500 */
+
+  --color-card-bg: #ffffff;       /* bg-white */
+  --color-card-border: #d1d5db;   /* border-zinc-300 */
+  --color-card-border-hover: #9ca3af; /* border-zinc-400 */
 }
 
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #000000;           /* bg-black */
+    --color-text-primary: #f9fafb; /* text-zinc-50 */
+    --color-text-secondary: #d4d4d8; /* text-zinc-300 */
+    --color-text-tertiary: #a1a1aa;  /* text-zinc-400 */
+
+    --color-card-bg: #18181b;      /* bg-zinc-900 */
+    --color-card-border: #27272a;  /* border-zinc-800 */
+    --color-card-border-hover: #3f3f46; /* border-zinc-700 */
+  }
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-main { background-color: var(--color-bg); } 
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-tertiary { color: var(--color-text-tertiary); }
+
+.card {
+  background-color: var(--color-card-bg);
+  border: 2px solid var(--color-card-border);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--color-card-border-hover);
+  transform: scale(1.05);
+}
+
+.github-btn {
+  color: white;
+  background-color: #0d1117;  /* bg-black-ish */
+  border: 2px solid #3d444d;  /* border-zinc-800 */
+  transition: background-color 0.3s;
+}
+
+.github-btn:hover {
+  background-color: #151b23;
+}

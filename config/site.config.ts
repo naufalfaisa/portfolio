@@ -16,7 +16,7 @@ export interface Project {
   github: string;
 }
 
-export interface WorkExperience {
+export interface Experience {
   role: string;
   company: string;
   period: string;
@@ -29,6 +29,7 @@ export interface Achievement {
   title: string;
   description: string;
   image: string;
+  source: string;
 }
 
 export interface Social {
@@ -53,7 +54,7 @@ export interface FooterConfig {
 export interface SiteConfig {
   profile: ProfileConfig;
   projects: SectionConfig<Project>;
-  workExperience: SectionConfig<WorkExperience>;
+  Experience: SectionConfig<Experience>;
   achievements: SectionConfig<Achievement>;
   socials: SectionConfig<Social>;
   footer: FooterConfig;
@@ -62,7 +63,7 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   profile: {
     name: "Naufal Faisa",
-    title: "Hi there — I'm Naufal Faisa",
+    title: "Hi there! I'm Naufal Faisa",
     description: [
       "I'm an undergraduate student in Informatics with a passion for programming. I enjoy exploring different tools and technologies and seeing what I can build.",
       "I'm currently learning to create CLI tools, web apps, and backend systems, while learning JavaScript, Python, Go, and working with Node.js. Writing clean and efficient code is always my goal.",
@@ -85,8 +86,8 @@ export const siteConfig: SiteConfig = {
     enabled: true,
   },
 
-  workExperience: {
-    title: "Work Experience",
+  Experience: {
+    title: "Experience",
     description: "Key roles and hands-on development experience I've undertaken.",
     items: [
       {
@@ -94,7 +95,7 @@ export const siteConfig: SiteConfig = {
         company: "Freelance",
         period: "2025 - Present",
         icon: FaDesktop,
-        link: "/",
+        link: "#",
       },
     ],
     enabled: true,
@@ -102,16 +103,17 @@ export const siteConfig: SiteConfig = {
 
   achievements: {
     title: "Achievements",
-    description: "Lorem ipsum.",
+    description: "These are some of the achievements I've earned.",
     items: [
       {
-        slug: "achievement-1",
-        title: "Achievement Title",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
+        slug: "responsive-web-design-certification",
+        title: "Responsive Web Design Certification",
+        description: "Completed FreeCodeCamp's Responsive Web Design course.",
         image: "https://placehold.jp/400x225.png",
+        source: "FreeCodeCamp"
       },
     ],
-    enabled: false,
+    enabled: true,
   },
 
   socials: {
