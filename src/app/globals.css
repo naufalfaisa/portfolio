@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+    --background: #0a0a0a;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+body {
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+}
+
+p {
+    @apply max-w-prose
+}
