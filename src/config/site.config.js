@@ -1,4 +1,3 @@
-import { IconType } from "react-icons";
 import {
     FaGithub,
     FaInstagram,
@@ -8,85 +7,34 @@ import {
     FaDiscord,
 } from "react-icons/fa6";
 
-export interface ProfileConfig {
-    avatar: string;
-    title: string;
-    name: string;
-    bio: string[];
-    enabled: boolean;
-}
+// --- Site Configuration ---
+export const siteConfig = {
 
-export interface DiscordStatusConfig {
-    userId: string;
-    enabled: boolean;
-}
-
-export interface Project {
-    github: string;
-}
-
-export interface Experience {
-    role: string;
-    company: string;
-    period: string;
-    link?: string;
-    icon: IconType;
-}
-
-export interface Achievement {
-    slug: string;
-    title: string;
-    description: string;
-    image: string;
-    source: string;
-    link?: string;
-}
-
-export interface Social {
-    name: string;
-    username: string;
-    url: string;
-    icon: IconType;
-}
-
-export interface SectionConfig<T> {
-    title: string;
-    description: string;
-    items: T[];
-    enabled: boolean;
-}
-
-export interface FooterConfig {
-    enabled: boolean;
-}
-
-export interface SiteConfig {
-    profile: ProfileConfig;
-    discordStatus: DiscordStatusConfig;
-    projects: SectionConfig<Project>;
-    Experience: SectionConfig<Experience>;
-    achievements: SectionConfig<Achievement>;
-    socials: SectionConfig<Social>;
-    footer: FooterConfig;
-}
-
-export const siteConfig: SiteConfig = {
+    // --- Profile ---
     profile: {
         name: "Naufal Faisa",
         title: "Welcome!",
         bio: [
-            "Hi! I'm Naufal Faisa, a Bachelor's degree student in Informatics Engineering with a passion for programming. I love exploring different tools and technologies and seeing what I can build.",
-            "I'm currently learning to build CLI tools, web applications, and backend systems, while also learning JavaScript, Python, Go, and Node.js. Writing clean and efficient code has always been my goal.",
+            <>
+                Hi! I'm <strong>Naufal Faisa</strong>, a Bachelor's degree student in Informatics Engineering with a passion for programming. I love exploring different tools and technologies and seeing what I can build.
+            </>,
+            <>
+                I'm currently learning to build CLI tools, web applications, and backend systems, while also learning JavaScript, Python, Go, and Node.js. Writing clean and efficient code has always been my goal.
+            </>,
         ],
-        avatar: "/images/avatar.jpg",
-        enabled: true,
+        avatar: {
+            src: "/images/avatar.jpg",
+            enabled: true,
+        },
     },
 
+    // --- Discord Status ---
     discordStatus: {
         userId: "1235664011987517565",
         enabled: true,
     },
 
+    // --- Projects ---
     projects: {
         title: "Projects",
         description: "Some projects from my Github repository.",
@@ -97,6 +45,7 @@ export const siteConfig: SiteConfig = {
         enabled: true,
     },
 
+    // --- Experience ---
     Experience: {
         title: "Experience",
         description:
@@ -113,6 +62,7 @@ export const siteConfig: SiteConfig = {
         enabled: true,
     },
 
+    // --- Achievements ---
     achievements: {
         title: "Achievements",
         description: "These are some of the achievements I've earned.",
@@ -130,6 +80,7 @@ export const siteConfig: SiteConfig = {
         enabled: true,
     },
 
+    // --- Socials ---
     socials: {
         title: "Socials",
         description:
@@ -169,6 +120,7 @@ export const siteConfig: SiteConfig = {
         enabled: true,
     },
 
+    // --- Footer ---
     footer: {
         enabled: true,
     },

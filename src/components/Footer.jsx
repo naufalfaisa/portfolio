@@ -1,9 +1,7 @@
 "use client";
+import { siteConfig } from "@/config/site.config";
 
-import { FC } from "react";
-import { siteConfig } from "@/src/config/site.config";
-
-export const Footer: FC = () => {
+export const Footer = () => {
     const { profile, footer } = siteConfig;
 
     if (!footer.enabled) return null;

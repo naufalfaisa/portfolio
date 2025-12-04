@@ -1,59 +1,38 @@
 "use client";
-import { FC, useEffect, useState } from "react";
-import { siteConfig } from "@/src/config/site.config";
+import { useEffect, useState } from "react";
+import { siteConfig } from "@/config/site.config";
 import { FaGithub, FaStar, FaCodeBranch } from "react-icons/fa";
 
-interface ProjectFromAPI {
-    github: string;
-    title: string;
-    description: string;
-    languages: string[];
-    stars: number;
-    forks: number;
-}
-
-interface LanguageColors {
-    [lang: string]: string;
-}
-
-const ProjectCardSkeleton: FC = () => {
+const ProjectCardSkeleton = () => {
     return (
-        <div className="bg-neutral-900 overflow-hidden rounded-lg animate-pulse">
+        <div className="bg-[#1a1a1a] overflow-hidden rounded-xl animate-pulse">
             <div className="p-5 flex flex-col h-full">
-                {/* Title skeleton */}
                 <div className="flex justify-between mb-2">
-                    <div className="h-6 bg-neutral-700 rounded w-3/4"></div>
-                    <div className="h-6 w-6 bg-neutral-700 rounded"></div>
+                    <div className="h-6 bg-neutral-700 rounded w-3/4" />
                 </div>
-
-                {/* Description skeleton */}
                 <div className="mb-4 space-y-2 flex-1">
-                    <div className="h-4 bg-neutral-700 rounded w-full"></div>
-                    <div className="h-4 bg-neutral-700 rounded w-5/6"></div>
+                    <div className="h-4 bg-neutral-700 rounded w-full" />
+                    <div className="h-4 bg-neutral-700 rounded w-5/6" />
                 </div>
-
-                {/* Languages skeleton */}
                 <div className="flex flex-wrap gap-6 mb-4">
                     <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-neutral-700"></div>
-                        <div className="h-3 w-16 bg-neutral-700 rounded"></div>
+                        <div className="w-2 h-2 rounded-full bg-neutral-700" />
+                        <div className="h-3 w-16 bg-neutral-700 rounded" />
                     </div>
                     <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-neutral-700"></div>
-                        <div className="h-3 w-20 bg-neutral-700 rounded"></div>
+                        <div className="w-2 h-2 rounded-full bg-neutral-700" />
+                        <div className="h-3 w-20 bg-neutral-700 rounded" />
                     </div>
                 </div>
-
-                {/* Button skeleton */}
-                <div className="h-12 bg-neutral-800 rounded-lg"></div>
+                <div className="h-12 bg-neutral-800 rounded-lg" />
             </div>
         </div>
     );
 };
 
-export const ProjectsSection: FC = () => {
-    const [projects, setProjects] = useState<ProjectFromAPI[]>([]);
-    const [langColors, setLangColors] = useState<LanguageColors>({});
+export const ProjectsSection = () => {
+    const [projects, setProjects] = useState([]);
+    const [langColors, setLangColors] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
     const projectCount = siteConfig.projects.items.length;
@@ -64,8 +43,8 @@ export const ProjectsSection: FC = () => {
         )
             .then((res) => res.json())
             .then((data) => {
-                const colors: LanguageColors = {};
-                Object.entries(data).forEach(([lang, info]: any) => {
+                const colors = {};
+                Object.entries(data).forEach(([lang, info]) => {
                     if (info.color) colors[lang] = info.color;
                 });
                 setLangColors(colors);
@@ -76,7 +55,7 @@ export const ProjectsSection: FC = () => {
         setIsLoading(true);
         fetch("/api/projects")
             .then((res) => res.json())
-            .then((data: ProjectFromAPI[]) => {
+            .then((data) => {
                 setProjects(data);
                 setIsLoading(false);
             })
@@ -88,7 +67,7 @@ export const ProjectsSection: FC = () => {
 
     return (
         <section>
-            <h2 className="mb-4 font-semibold text-2xl text-white">
+            <h2 className="mb-4 font-semibold text-3xl text-white">
                 Projects
             </h2>
             <p className="text-zinc-300 mb-6">
@@ -106,13 +85,13 @@ export const ProjectsSection: FC = () => {
                     projects.map((p, i) => (
                         <div
                             key={i}
-                            className="bg-neutral-900 overflow-hidden rounded-lg"
+                            className="bg-[#1a1a1a] overflow-hidden rounded-xl"
                         >
                             <div className="p-5 flex flex-col h-full">
                                 <h3 className="text-white font-semibold mb-2 text-xl flex justify-between">
                                     {p.title}
                                 </h3>
-                                <p className="mb-4 text-sm text-zinc-400 line-clamp-2 flex-1">
+                                <p className="mb-4 text-sm text-zinc-300 line-clamp-2 flex-1">
                                     {p.description}
                                 </p>
                                 <div className="flex flex-wrap gap-6 mb-4">

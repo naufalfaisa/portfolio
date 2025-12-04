@@ -1,4 +1,4 @@
-# Personal Portfolio Website >\_
+# Personal Portfolio Website >_<
 
 Personal portfolio website built with Next.js to showcase projects, skills, and contact information.
 
@@ -9,7 +9,7 @@ https://naufalfaisa.my.id
 ## 🛠 Tech Stack
 
 - Framework: Next.js
-- Language: TypeScript
+- Language: Javascript
 - Styling: CSS / Tailwind
 - Deployment: Vercel
 
@@ -55,7 +55,7 @@ bun dev
 
 ### Configuration
 
-Edit `config/site.config.ts` tto customize your portfolio settings, including your name, social links, and projects.
+Edit `config/site.config.js` tto customize your portfolio settings, including your name, social links, and projects.
 
 ### Project Structure
 
@@ -63,7 +63,7 @@ Edit `config/site.config.ts` tto customize your portfolio settings, including yo
 public/         # Static assets (images, icons, etc.)
 src/
     app/        # Pages and components
-    config/     # site.config.ts for site settings
+    config/     # site.config.js for site settings
 ```
 
 ### Deployment

@@ -1,5 +1,4 @@
-// app/page.tsx
-import { siteConfig } from "@/src/config/site.config";
+import { siteConfig } from "@/config/site.config";
 import { AchievementsSection } from "../components/AchievementsSection";
 import { ProfileSection } from "../components/ProfileSection";
 import { ProjectsSection } from "../components/ProjectsSection";
@@ -10,7 +9,7 @@ import { Footer } from "../components/Footer";
 export default function Home() {
     return (
         <>
-            {siteConfig.profile.enabled && <ProfileSection />}
+            {siteConfig.profile.avatar.enabled && <ProfileSection />}
             {siteConfig.projects.enabled && <ProjectsSection />}
             {siteConfig.Experience.enabled && <ExperienceSection />}
             {siteConfig.achievements.enabled && <AchievementsSection />}

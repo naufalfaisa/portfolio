@@ -1,11 +1,13 @@
-import { type ClassValue, clsx } from "clsx";
+// --- Utility for combining Tailwind classes ---
+import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-export function cn(...inputs: ClassValue[]) {
+export function cn(...inputs) {
     return twMerge(clsx(inputs));
 }
 
-export function formatTimestamp(timestamp: number): string {
+// --- Format timestamp to elapsed string ---
+export function formatTimestamp(timestamp) {
     const now = Date.now();
     const elapsed = now - timestamp;
     const minutes = Math.floor(elapsed / 60000);
@@ -17,40 +19,26 @@ export function formatTimestamp(timestamp: number): string {
     return `${minutes} minute${minutes === 1 ? "" : "s"} elapsed`;
 }
 
-export type SetCookieOptions = {
-    path?: string;
-    maxAge?: number;
-    expires?: Date;
-    secure?: boolean;
-    sameSite?: "Strict" | "Lax" | "None";
-};
-
-export async function setCookie(
-    name: string,
-    value: string,
-    options: SetCookieOptions = {},
-): Promise<void> {
-    // Fallback to document.cookie for environments that don't support it.
+// --- Set cookie with fallback to document.cookie and localStorage ---
+export async function setCookie(name, value, options = {}) {
     try {
+        // Browser with cookieStore API
         if (
             typeof window !== "undefined" &&
             "cookieStore" in window.navigator
         ) {
-            const cookieInit: Record<string, unknown> = { value };
+            const cookieInit = { value };
+
             if (options.expires) cookieInit.expires = options.expires;
             if (options.maxAge != null) cookieInit.maxAge = options.maxAge;
             if (options.path) cookieInit.path = options.path;
             if (options.sameSite) cookieInit.sameSite = options.sameSite;
             if (options.secure) cookieInit.secure = options.secure;
 
-            const navigatorWithCookieStore = window.navigator as unknown as {
-                cookieStore?: {
-                    set: (init: Record<string, unknown>) => Promise<void>;
-                };
-            };
+            const nav = window.navigator;
 
-            if (navigatorWithCookieStore.cookieStore?.set) {
-                await navigatorWithCookieStore.cookieStore.set({
+            if (nav.cookieStore?.set) {
+                await nav.cookieStore.set({
                     name,
                     ...cookieInit,
                 });
@@ -58,9 +46,10 @@ export async function setCookie(
             }
         }
 
+        // Fallback: document.cookie
         if (typeof document === "undefined") return;
 
-        const parts: string[] = [
+        const parts = [
             `${encodeURIComponent(name)}=${encodeURIComponent(value)}`,
         ];
 
@@ -71,15 +60,18 @@ export async function setCookie(
         if (options.secure) parts.push("secure");
         if (options.sameSite) parts.push(`SameSite=${options.sameSite}`);
 
+        document.cookie = parts.join("; ");
+
+        // Extra fallback: localStorage
         try {
             if (typeof window !== "undefined" && window.localStorage) {
                 const payload = { value, attrs: options };
                 window.localStorage.setItem(
                     `cookie:${name}`,
-                    JSON.stringify(payload),
+                    JSON.stringify(payload)
                 );
             }
-        } catch {}
+        } catch { }
     } catch (e) {
         console.warn("setCookie failed:", e);
     }
