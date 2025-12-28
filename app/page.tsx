@@ -12,10 +12,10 @@ export default function Home() {
             <TypingText text="Hi there!" />
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-300 mb-4">
-            I'm <strong>Naufal Faisa</strong>, a Bachelor of Science in Informatics Engineering with a passion for programming.
+            I&apos;m <strong>Naufal Faisa</strong>, a Bachelor of Science in Informatics Engineering with a passion for programming.
           </p>
           <p className="text-lg text-zinc-600 dark:text-zinc-300">
-            I'm currently learning to build CLI tools, web applications, and backend systems, while also improving my skills in JavaScript, Python, Go, and React.
+            I&apos;m currently learning to build CLI tools, web applications, and backend systems, while also improving my skills in JavaScript, Python, Go, and React.
           </p>
         </div>
 

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function Achievements() {
   const ACHIEVEMENTS = [
