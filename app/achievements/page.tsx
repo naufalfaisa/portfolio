@@ -55,7 +55,7 @@ export default function Achievements() {
                   {cert.description}
                 </p>
 
-                <span className="bg-zinc-200 dark:bg-zinc-800 inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium w-fit">
+                <span className="bg-zinc-200 dark:bg-zinc-800 inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold w-fit">
                   {cert.issuer}
                 </span>
               </div>

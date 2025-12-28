@@ -73,32 +73,37 @@ export default function Projects() {
                   <h2 className="text-xl font-semibold tracking-tighter">
                     {project.name}
                   </h2>
-                  <a
-                    href={project.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white transition-colors"
-                  >
-                    < FaGithub className="h-6 w-6" />
-                  </a>
+                    {project.language && (
+                      <span
+                        className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold w-fit"
+                        style={{
+                          color: colorData?.[project.language]?.color ?? "#666",
+                          backgroundColor: `${colorData?.[project.language]?.color ?? "#888"}40`,
+                        }}
+                      >
+                        <span className="brightness-[0.8] dark:brightness-[1.6]">
+                          {project.language}
+                        </span>
+                      </span>
+                    )}
                 </div>
 
                 <p className="pt-2 border-t-2 border-zinc-200 dark:border-zinc-800 mb-4 text-sm text-zinc-600 dark:text-zinc-300">
                   {project.description ?? "No description available."}
                 </p>
 
-                {project.language && (
-                  <span
-                    className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium w-fit"
-                    style={{
-                      color: colorData?.[project.language]?.color ?? "#888",
-                      backgroundColor: `${colorData?.[project.language]?.color ?? "#888"}40`,
-                      filter: "brightness(1.6)",
-                    }}
-                  >
-                    {project.language}
+                <a
+                  href={project.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="self-start flex items-center gap-2 px-3 py-2 bg-zinc-200 dark:bg-zinc-800 rounded-lg hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-colors"
+                >
+                  <FaGithub className="h-5 w-5 text-zinc-600 dark:text-zinc-300" />
+                  <span className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                    View on GitHub
                   </span>
-                )}
+                </a>
+
               </div>
             </div>
           ))}
