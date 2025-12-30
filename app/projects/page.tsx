@@ -48,19 +48,15 @@ export default function Projects() {
                 </p>
             </div>
 
-            {error && (
-                <div className="py-10 text-center text-red-500">
-                    Failed to load data...
-                </div>
-            )}
-
-            {isLoading && (
+            {isLoading && !projects ? (
                 <div className="py-10 text-center animate-pulse text-zinc-500">
                     Loading data...
                 </div>
-            )}
-
-            {!isLoading && !error && (
+            ) : error && !projects ? (
+                <div className="py-10 text-center text-red-500">
+                    Failed to load data...
+                </div>
+            ) : (
                 <div className="grid sm:grid-cols-2 gap-5">
                     {projects?.map((project) => (
                         <div
