@@ -26,7 +26,7 @@ export default function Achievements() {
                 {ACHIEVEMENTS.map((cert) => (
                     <div
                         key={cert.title}
-                        className="w-full overflow-hidden rounded-xl border-2 border-zinc-200 dark:border-zinc-800 transition-all hover:border-zinc-300 dark:hover:border-zinc-700"
+                        className="w-full overflow-hidden rounded-xl bg-zinc-50 dark:bg-[#121212] border border-zinc-200 dark:border-zinc-800 transition-all hover:border-zinc-300 dark:hover:border-zinc-700"
                     >
                         <div className="flex flex-col">
                             <div className="bg-zinc-100 dark:bg-zinc-900">

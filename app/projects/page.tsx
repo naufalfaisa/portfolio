@@ -61,7 +61,7 @@ export default function Projects() {
                     {projects?.map((project) => (
                         <div
                             key={project.id}
-                            className="rounded-xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-800 transition-all hover:border-zinc-300 dark:hover:border-zinc-700"
+                            className="rounded-xl overflow-hidden bg-zinc-50 dark:bg-[#121212] border border-zinc-200 dark:border-zinc-800 transition-all hover:border-zinc-300 dark:hover:border-zinc-700"
                         >
                             <div className="p-5 flex flex-col">
                                 <div className="mb-2 flex justify-between items-center gap-2">
@@ -69,24 +69,20 @@ export default function Projects() {
                                         {project.name}
                                     </h2>
                                     {project.language && (
-                                        <span
-                                            className="inline-flex items-center px-2 py-1 rounded-md text-xs font-semibold w-fit"
-                                            style={{
-                                                color:
-                                                    colorData?.[
-                                                        project.language
-                                                    ]?.color ?? '#666',
-                                                backgroundColor: `${colorData?.[project.language]?.color ?? '#888'}50`,
-                                            }}
-                                        >
-                                            <span className="brightness-[0.5] dark:brightness-[1.5]">
-                                                {project.language}
-                                            </span>
-                                        </span>
+                                    <span
+                                        className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold border transition-all dark:brightness-150"
+                                        style={{
+                                        backgroundColor: `${colorData?.[project.language]?.color ?? '#666666'}20`,
+                                        borderColor: `${colorData?.[project.language]?.color ?? '#666666'}50`,
+                                        color: colorData?.[project.language]?.color ?? '#666666',
+                                        }}
+                                    >
+                                        {project.language}
+                                    </span>
                                     )}
                                 </div>
 
-                                <p className="pt-2 border-t-2 border-zinc-200 dark:border-zinc-800 mb-4 text-sm text-zinc-600 dark:text-zinc-300">
+                                <p className="pt-2 border-t border-zinc-200 dark:border-zinc-800 mb-4 text-sm text-zinc-600 dark:text-zinc-300">
                                     {project.description ??
                                         'No description available.'}
                                 </p>

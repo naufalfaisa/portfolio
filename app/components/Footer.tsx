@@ -2,13 +2,21 @@ import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import React from 'react';
 
 const SOCIAL_LINKS = [
-    { id: 1, href: 'https://github.com/naufalfaisa', icon: <FaGithub /> },
+    {   
+        id: 1, 
+        href: 'https://github.com/naufalfaisa', 
+        icon: <FaGithub /> 
+    },
     {
         id: 2,
         href: 'https://linkedin.com/in/naufalfaisa',
         icon: <FaLinkedin />,
     },
-    { id: 3, href: 'https://x.com/naufalfaisa', icon: <FaXTwitter /> },
+    {   
+        id: 3, 
+        href: 'https://x.com/naufalfaisa', 
+        icon: <FaXTwitter /> 
+    },
 ];
 
 export default function Footer() {

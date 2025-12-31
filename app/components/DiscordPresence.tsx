@@ -66,11 +66,11 @@ function getElapsed(start?: number) {
 function LoadingPlaceholder() {
     return (
         <div className="w-65 font-sans">
-            <div className="flex items-center gap-3 rounded-xl border-2 border-zinc-200 dark:border-zinc-800 bg-zinc-900/20 p-3 animate-pulse">
-                <div className="h-16 w-16 shrink-0 rounded-lg bg-zinc-800" />
+            <div className="flex items-center gap-3 rounded-xl bg-zinc-50 dark:bg-[#121212] border border-zinc-200 dark:border-zinc-800 p-3 animate-pulse">
+                <div className="h-16 w-16 shrink-0 rounded-lg bg-zinc-200 dark:bg-zinc-800" />
                 <div className="flex-1 space-y-2">
-                    <div className="h-3 w-1/2 rounded bg-zinc-700" />
-                    <div className="h-2 w-3/4 rounded bg-zinc-800" />
+                    <div className="h-3 w-1/2 rounded bg-zinc-300 dark:bg-zinc-700" />
+                    <div className="h-2 w-3/4 rounded bg-zinc-200 dark:bg-zinc-800" />
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@ function LoadingPlaceholder() {
 function IdleState() {
     return (
         <div className="flex flex-col gap-2 w-65 font-sans">
-            <div className="border-2 border-zinc-200 dark:border-zinc-800 p-3 rounded-xl flex items-center gap-3">
+            <div className="bg-zinc-50 dark:bg-[#121212] border border-zinc-200 dark:border-zinc-800 p-3 rounded-xl flex items-center gap-3">
                 <div className="w-16 h-16 rounded-lg bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center shrink-0">
                     <Moon className="w-8 h-8 text-zinc-500" />
                 </div>
@@ -121,7 +121,7 @@ function ActivityCard({
 
     return (
         <div onClick={onClick} className="cursor-pointer">
-            <div className="border-2 border-zinc-200 dark:border-zinc-800 p-3 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-right-5 duration-500">
+            <div className="bg-zinc-50 dark:bg-[#121212] border border-zinc-200 dark:border-zinc-800 p-3 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-right-5 duration-500">
                 <Image
                     src={imageSrc}
                     width={64}
