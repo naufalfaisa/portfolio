@@ -1,6 +1,17 @@
 import { NextResponse } from 'next/server';
 
-const PROJECTS = ['naufalfaisa/amdl', 'naufalfaisa/amly'];
+const PROJECTS = [
+    {
+        full_name: 'naufalfaisa/amdl',
+        image: 'https://repository-images.githubusercontent.com/1124270734/772b36c0-bc65-46f4-bb8d-465988fae5a0',
+    },
+    {
+        full_name: 'naufalfaisa/amly',
+    },
+    {
+        full_name: 'naufalfaisa/portfolio',
+    },
+];
 
 export async function GET() {
     const token = process.env.GITHUB_TOKEN;
@@ -34,11 +45,22 @@ export async function GET() {
         );
     }
 
-    const projectList = PROJECTS.map((p) => p.toLowerCase());
-
-    const filtered = data.filter((repo) =>
-        projectList.includes(repo.full_name.toLowerCase()),
+    const projectMap = new Map(
+        PROJECTS.map((p) => [p.full_name.toLowerCase(), p]),
     );
+
+    const filtered = data
+        .filter((repo) => projectMap.has(repo.full_name.toLowerCase()))
+        .map((repo) => {
+            const config = projectMap.get(repo.full_name.toLowerCase());
+
+            return {
+                ...repo,
+                image_url:
+                    config?.image ??
+                    `https://opengraph.githubassets.com/1/${repo.full_name}`,
+            };
+        });
 
     return NextResponse.json(filtered);
 }

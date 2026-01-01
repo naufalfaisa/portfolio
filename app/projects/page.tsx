@@ -2,6 +2,7 @@
 
 import useSWR from 'swr';
 import { FaGithub } from 'react-icons/fa6';
+import Image from 'next/image';
 
 const fetcher = (url: string) =>
     fetch(url).then((res) => {
@@ -16,6 +17,7 @@ interface Repo {
     html_url: string;
     description: string | null;
     language: string | null;
+    image_url: string;
 }
 
 interface ColorData {
@@ -40,7 +42,7 @@ export default function Projects() {
     return (
         <section className="font-sans flex flex-col gap-10">
             <div className="max-w-prose">
-                <h1 className="mb-2 text-3xl font-semibold tracking-tight">
+                <h1 className="mb-4 text-3xl font-semibold tracking-tight">
                     Projects
                 </h1>
                 <p className="text-zinc-600 dark:text-zinc-300">
@@ -61,8 +63,20 @@ export default function Projects() {
                     {projects?.map((project) => (
                         <div
                             key={project.id}
-                            className="rounded-xl overflow-hidden bg-zinc-50 dark:bg-[#121212] border border-zinc-200 dark:border-zinc-800 transition-all hover:border-zinc-300 dark:hover:border-zinc-700"
+                            className="rounded-xl overflow-hidden bg-zinc-50/80 dark:bg-[#121212]/80 border border-zinc-300 dark:border-zinc-700 transition-all hover:border-zinc-400 dark:hover:border-zinc-600 shadow"
                         >
+                            <div className="overflow-hidden">
+                                <Image
+                                    src={project.image_url}
+                                    width={600}
+                                    height={400}
+                                    sizes="(max-width: 640px) 100vw, 50vw"
+                                    unoptimized
+                                    alt={`${project.name} preview`}
+                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                            </div>
+                            
                             <div className="p-5 flex flex-col">
                                 <div className="mb-2 flex justify-between items-center gap-2">
                                     <h2 className="text-xl font-semibold tracking-tighter">
@@ -82,7 +96,7 @@ export default function Projects() {
                                     )}
                                 </div>
 
-                                <p className="pt-2 border-t border-zinc-200 dark:border-zinc-800 mb-4 text-sm text-zinc-600 dark:text-zinc-300">
+                                <p className="mb-4 text-sm text-zinc-600 dark:text-zinc-300">
                                     {project.description ??
                                         'No description available.'}
                                 </p>

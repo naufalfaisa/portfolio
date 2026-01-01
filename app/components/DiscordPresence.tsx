@@ -66,11 +66,11 @@ function getElapsed(start?: number) {
 function LoadingPlaceholder() {
     return (
         <div className="w-65 font-sans">
-            <div className="flex items-center gap-3 rounded-xl bg-zinc-50 dark:bg-[#121212] border border-zinc-200 dark:border-zinc-800 p-3 animate-pulse">
+            <div className="flex items-center gap-3 rounded-xl bg-zinc-50/80 dark:bg-[#121212]/80 border border-zinc-300 dark:border-zinc-700 p-3 shadow">
                 <div className="h-16 w-16 shrink-0 rounded-lg bg-zinc-200 dark:bg-zinc-800" />
                 <div className="flex-1 space-y-2">
                     <div className="h-3 w-1/2 rounded bg-zinc-300 dark:bg-zinc-700" />
-                    <div className="h-2 w-3/4 rounded bg-zinc-200 dark:bg-zinc-800" />
+                    <div className="h-2 w-3/4 rounded bg-zinc-300 dark:bg-zinc-700" />
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@ function LoadingPlaceholder() {
 function IdleState() {
     return (
         <div className="flex flex-col gap-2 w-65 font-sans">
-            <div className="bg-zinc-50 dark:bg-[#121212] border border-zinc-200 dark:border-zinc-800 p-3 rounded-xl flex items-center gap-3">
+            <div className="bg-zinc-50/80 dark:bg-[#121212]/80 border border-zinc-300 dark:border-zinc-700 p-3 rounded-xl flex items-center gap-3 shadow">
                 <div className="w-16 h-16 rounded-lg bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center shrink-0">
                     <Moon className="w-8 h-8 text-zinc-500" />
                 </div>
@@ -88,7 +88,7 @@ function IdleState() {
                     <h3 className="font-semibold text-zinc-600 dark:text-zinc-300 text-xs">
                         Currently Idle
                     </h3>
-                    <p className="text-zinc-600 dark:text-zinc-400 text-xs mt-1">
+                    <p className="text-zinc-500 dark:text-zinc-400 text-xs mt-1">
                         No activity detected
                     </p>
                 </div>
@@ -121,7 +121,7 @@ function ActivityCard({
 
     return (
         <div onClick={onClick} className="cursor-pointer">
-            <div className="bg-zinc-50 dark:bg-[#121212] border border-zinc-200 dark:border-zinc-800 p-3 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-right-5 duration-500">
+            <div className="bg-[#121212] border border-zinc-200 dark:border-zinc-700 p-3 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-right-5 duration-500 shadow">
                 <Image
                     src={imageSrc}
                     width={64}
@@ -135,7 +135,7 @@ function ActivityCard({
                     priority
                 />
                 <div className="flex-1 min-w-0">
-                    <p className="text-[10px] text-zinc-600 dark:text-zinc-400">
+                    <p className="text-[10px] text-zinc-500 dark:text-zinc-400">
                         {isSpotify ? 'Listening to Spotify' : 'Playing'}
                     </p>
                     <p className="font-bold text-xs">
@@ -150,7 +150,7 @@ function ActivityCard({
                             {page.data.state} - {page.data.details}
                         </p>
                     )}
-                    <p className="text-zinc-600 dark:text-zinc-400 text-[11px] font-mono mt-1">
+                    <p className="text-zinc-500 dark:text-zinc-400 text-[11px] font-mono mt-1">
                         {elapsed} elapsed
                     </p>
                 </div>

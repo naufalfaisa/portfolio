@@ -5,15 +5,7 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'opengraph.githubassets.com',
-            },
-            {
-                protocol: 'https',
                 hostname: 'camo.githubusercontent.com',
-            },
-            {
-                protocol: 'https',
-                hostname: 'i.scdn.co',
             },
             {
                 protocol: 'https',
@@ -21,7 +13,19 @@ const nextConfig: NextConfig = {
             },
             {
                 protocol: 'https',
+                hostname: 'github.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'i.scdn.co',
+            },
+            {
+                protocol: 'https',
                 hostname: 'lanyard.rest',
+            },
+            {
+                protocol: 'https',
+                hostname: 'opengraph.githubassets.com',
             },
         ],
     },

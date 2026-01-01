@@ -3,10 +3,17 @@ import Image from 'next/image';
 export default function Achievements() {
     const ACHIEVEMENTS = [
         {
+            title: 'Responsive Web Design',
+            issuer: 'freeCodeCamp',
+            description: 'Built responsive websites using HTML, CSS, Flexbox, and Grid.',
+            image: '/images/achivements/responsive-web-design.png',
+            link: 'https://www.freecodecamp.org/certification/naufalfaisa/responsive-web-design-v9',
+        },
+        {
             title: 'Belajar Dasar AI',
             issuer: 'Dicoding Indonesia',
-            description: 'Fundamental knowledge of AI, Machine Learning, and Deep Learning applications.',
-            image: '/images/achivements/06f17e9c-62b2-41f8-b0c5-f0eb06d63c72-0000.webp',
+            description: 'Basic concepts of AI, Machine Learning, and Deep Learning.',
+            image: '/images/achivements/belajar-dasar-ai.webp',
             link: 'https://www.dicoding.com/certificates/98XWO78ELZM3',
         },
     ];
@@ -14,7 +21,7 @@ export default function Achievements() {
     return (
         <section className="font-sans flex flex-col gap-10">
             <div className="flex flex-col max-w-prose">
-                <h1 className="mb-2 text-3xl font-semibold tracking-tight text-black dark:text-zinc-50">
+                <h1 className="mb-4 text-3xl font-semibold tracking-tight text-black dark:text-zinc-50">
                     Achievements
                 </h1>
                 <p className="text-zinc-600 dark:text-zinc-300">
@@ -26,17 +33,17 @@ export default function Achievements() {
                 {ACHIEVEMENTS.map((cert) => (
                     <div
                         key={cert.title}
-                        className="w-full overflow-hidden rounded-xl bg-zinc-50 dark:bg-[#121212] border border-zinc-200 dark:border-zinc-800 transition-all hover:border-zinc-300 dark:hover:border-zinc-700"
+                        className="w-full overflow-hidden rounded-xl bg-zinc-50/80 dark:bg-[#121212]/80 border border-zinc-300 dark:border-zinc-700 transition-all hover:border-zinc-400 dark:hover:border-zinc-600 shadow"
                     >
                         <div className="flex flex-col">
-                            <div className="bg-zinc-100 dark:bg-zinc-900">
+                            <div className="overflow-hidden">
                                 <Image
                                     src={cert.image}
                                     alt={cert.title}
                                     width={600}
                                     height={400}
-                                    className="w-full h-auto object-contain"
                                     sizes="(max-width: 640px) 100vw, 50vw"
+                                    className="transition-transform duration-300 ease-out hover:scale-105"
                                 />
                             </div>
 
@@ -56,7 +63,7 @@ export default function Achievements() {
                                     {cert.description}
                                 </p>
 
-                                <span className="bg-zinc-200 dark:bg-zinc-800 inline-flex items-center px-2 py-1 rounded-md text-xs font-semibold w-fit">
+                                <span className="bg-zinc-200/60 dark:bg-zinc-800 inline-flex items-center px-2 py-1 rounded-md text-xs font-semibold w-fit">
                                     {cert.issuer}
                                 </span>
                             </div>
