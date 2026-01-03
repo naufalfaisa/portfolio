@@ -3,13 +3,13 @@ import { NextResponse } from 'next/server';
 const PROJECTS = [
     {
         full_name: 'naufalfaisa/amdl',
-        image: 'https://repository-images.githubusercontent.com/1124270734/772b36c0-bc65-46f4-bb8d-465988fae5a0',
     },
     {
         full_name: 'naufalfaisa/amly',
     },
     {
         full_name: 'naufalfaisa/portfolio',
+        image: 'https://repository-images.githubusercontent.com/1124270734/772b36c0-bc65-46f4-bb8d-465988fae5a0',
     },
 ];
 
