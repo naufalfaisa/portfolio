@@ -24,12 +24,12 @@ export default function Home() {
 
                 <div className="flex flex-col items-center shrink-0 w-full sm:w-auto gap-6">
                     <Image
-                        src="/images/avatar.jpg"
+                        src="https://github.com/naufalfaisa.png"
                         alt="Avatar"
                         width={200}
                         height={200}
                         priority
-                        className="object-cover rounded-full aspect-square border-4 border-zinc-200 dark:border-zinc-800"
+                        className="object-cover rounded-full aspect-square border-2 border-zinc-300 dark:border-zinc-700"
                     />
                     <DiscordPresence userId="1235664011987517565" />
                 </div>
